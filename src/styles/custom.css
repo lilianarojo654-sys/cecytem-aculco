@@ -112,7 +112,7 @@ a:hover { color: var(--cecytem-green); }
 .hero-section {
   position: relative;
   min-height: 100vh;
-  background: url('../public/img/OFICIAL.webp') center/cover no-repeat;
+  background: url('../../public/img/OFICIAL.webp') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
