@@ -1,0 +1,327 @@
+/* =========================================
+   PALETA INSTITUCIONAL CECYTEM (AZUL PASTEL + ACCESIBILIDAD)
+   ========================================= */
+:root {
+  /* --- VARIABLES DE TIPOGRAFÍA ACCESIBLE (WCAG) --- */
+  --font-size-base: 1rem; /* 16px por defecto, escalable con rem */
+  --line-height-base: 1.6; /* Estándar WCAG para máxima legibilidad */
+  --letter-spacing-base: 0.015em; /* Espaciado ligero para evitar que las letras se peguen */
+  
+  /* --- PALETA DE COLORES (Se mantiene tu azul pastel) --- */
+  --cecytem-green: #5B9BD5;
+  --cecytem-dark: #4A86B8;
+  --cecytem-bg-light: #F0F7FF; 
+  --cecytem-accent: #FFD966;
+  
+  /* --- FUENTE CON FALLBACKS UNIVERSALES --- */
+  /* Si Poppins no carga, usará la fuente nativa del sistema del usuario */
+  --font-main: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  
+  /* --- COLORES DE TEXTO DE ALTO CONTRASTE --- */
+  --color-text-primary: #1a1a1a; /* Casi negro, mejor contraste que #2c3e50 */
+  --color-text-secondary: #4a4a4a;
+}
+
+* { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-main);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  letter-spacing: var(--letter-spacing-base);
+  padding-top: 70px;
+  color: var(--color-text-primary);
+  background-color: var(--cecytem-bg-light) !important;
+  
+  /* Mejora la renderización de fuentes en Mac, Windows y móviles */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ===== CLASES PARA CAMBIADOR DE TAMAÑO DE FUENTE ===== */
+body.font-small { --font-size-base: 0.875rem; }   /* 14px */
+body.font-medium { --font-size-base: 1rem; }      /* 16px (Normal) */
+body.font-large { --font-size-base: 1.125rem; }   /* 18px */
+body.font-xlarge { --font-size-base: 1.25rem; }   /* 20px */
+
+/* Títulos escalables proporcionalmente */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p, li, td, th {
+  font-size: 1rem;
+  line-height: var(--line-height-base);
+}
+
+/* ===== SOBRESSCRITURA GLOBAL DE BOOTSTRAP A AZUL PASTEL ===== */
+.btn-primary {
+  background-color: var(--cecytem-green) !important;
+  border-color: var(--cecytem-green) !important;
+  color: #fff !important;
+  font-weight: 500;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+  background-color: var(--cecytem-dark) !important;
+  border-color: var(--cecytem-dark) !important;
+}
+
+.btn-outline-primary {
+  color: var(--cecytem-green) !important;
+  border-color: var(--cecytem-green) !important;
+}
+.btn-outline-primary:hover {
+  background-color: var(--cecytem-green) !important;
+  color: #fff !important;
+}
+
+.bg-primary { background-color: var(--cecytem-green) !important; }
+.text-primary { color: var(--cecytem-dark) !important; } /* Oscurecido para mejor contraste */
+.text-muted { color: var(--color-text-secondary) !important; }
+
+/* Alertas e información en tonos azules pastel */
+.alert-info {
+  background-color: rgba(91, 155, 213, 0.1) !important;
+  border-color: var(--cecytem-green) !important;
+  color: var(--cecytem-dark) !important;
+}
+
+.badge.bg-info {
+  background-color: var(--cecytem-green) !important;
+  color: #fff !important;
+}
+
+/* Enlaces con subrayado visible para accesibilidad */
+a {
+  color: var(--cecytem-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--cecytem-green); }
+
+/* ===== HERO SECTION CON IMAGEN VISIBLE ===== */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  background: url('/public/img/OFICIAL.webp') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(91, 155, 213, 0.3), rgba(74, 134, 184, 0.4));
+}
+
+.hero-content { position: relative; z-index: 2; }
+
+/* ===== TARJETAS MISIÓN/VISIÓN ===== */
+.card-mision, .card-vision {
+  transition: transform 0.3s ease;
+  border-top: 5px solid var(--cecytem-green);
+  background-color: #fff;
+}
+.card-mision:hover, .card-vision:hover { transform: translateY(-5px); }
+
+/* ===== ALIADOS ===== */
+.aliado-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  background-color: #fff;
+}
+.aliado-card:hover {
+  transform: scale(1.05);
+  border-bottom-color: var(--cecytem-green);
+  box-shadow: 0 0.5rem 1rem rgba(91, 155, 213, 0.15) !important;
+}
+
+/* ===== GALERÍA ===== */
+.gallery-item {
+  overflow: hidden;
+  border-radius: 0.5rem;
+  position: relative;
+}
+.gallery-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.gallery-item:hover img { transform: scale(1.1); }
+
+/* ===== NAVBAR Y FOOTER ===== */
+.navbar {
+  background-color: var(--cecytem-green) !important;
+  transition: background 0.3s ease;
+}
+.navbar-brand img {
+  border-radius: 50%;
+  background: #fff;
+  padding: 2px;
+}
+footer { background-color: var(--cecytem-dark) !important; }
+footer a:hover { color: var(--cecytem-accent) !important; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  :root { --font-size-base: 0.95rem; } /* Ligeramente más pequeño en móviles para que quepa bien */
+  .hero-section { min-height: 80vh; }
+  .hero-section h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+section { animation: fadeInUp 0.8s ease-out; }
+
+/* ===== PROGRAMAS ACADÉMICOS & SERVICIOS ===== */
+.program-card, .service-card-hover {
+  transition: all 0.3s ease;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(91, 155, 213, 0.2);
+  background-color: #fff;
+}
+.program-card:hover, .service-card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 1rem 3rem rgba(91, 155, 213, 0.15) !important;
+  border-color: var(--cecytem-green);
+}
+.program-card .card-img-top, .service-card-hover img { transition: transform 0.5s ease; }
+.program-card:hover .card-img-top { transform: scale(1.05); }
+
+.badge {
+  font-size: 0.85rem;
+  padding: 0.5em 0.8em;
+  border-radius: 0.5rem;
+}
+
+/* ===== TABLA MODELO BIVALENTE ===== */
+.custom-bivalent-table thead th {
+  background-color: var(--cecytem-green);
+  color: white;
+  font-weight: 600;
+  border-bottom: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-custom-secondary { background-color: #6c757d; color: white; }
+.badge-custom-success { background-color: var(--cecytem-dark); color: white; }
+.badge-custom-info { background-color: var(--cecytem-green); color: white; }
+.badge-custom-warning { background-color: var(--cecytem-accent); color: #000; }
+
+.custom-bivalent-table tbody tr:nth-of-type(odd) {
+  background-color: rgba(91, 155, 213, 0.05);
+}
+
+.table-warning.bg-opacity-10 {
+  background-color: rgba(255, 217, 102, 0.2) !important;
+}
+
+/* ===== EFECTO HOVER EN TESTIMONIOS ===== */
+.testimonio-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.testimonio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(91, 155, 213, 0.15) !important;
+}
+.testimonio-card img { transition: transform 0.3s ease; }
+.testimonio-card:hover img { transform: scale(1.05); }
+
+/* =========================================
+   NUEVO: WIDGET DE ACCESIBILIDAD Y FOCOS
+   ========================================= */
+.accessibility-widget {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 9998;
+}
+
+.btn-accessibility {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--cecytem-dark);
+  color: white;
+  border: 2px solid white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-accessibility:hover {
+  background: var(--cecytem-green);
+  transform: scale(1.1);
+}
+
+/* Focos visibles para personas que navegan con teclado (Tab) */
+*:focus-visible {
+  outline: 3px solid var(--cecytem-accent) !important;
+  outline-offset: 3px !important;
+}
+
+/* Respetar preferencia del usuario de reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* BOTÓN FLOTANTE DE WHATSAPP */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
+  z-index: 9997;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+  color: white;
+}
+
+.whatsapp-float:active {
+  transform: scale(0.95);
+}
